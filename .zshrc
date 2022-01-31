@@ -123,7 +123,7 @@ alias python_course="cd /mnt/d/coding/'Udemy Courses'/'LearnProgrammingAcademy P
 alias nv="nvim"
 alias soft_wrap='tput rmam'
 alias terminal_config="nv ~/.zshrc"
-alias config_files='cd /mnt/d/coding/configurations'
+alias git_files='cd /mnt/d/coding/GitFiles'
 
 export DISPLAY=localhost:0.0 # This is for the background XMing Server
 
