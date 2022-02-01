@@ -19,7 +19,7 @@ Plug 'tc50cal/vim-terminal' "Terminal Split
 Plug 'preservim/tagbar' "Vim Tagbar
 Plug 'github/copilot.vim' "GitHub Copilot
 Plug 'jiangmiao/auto-pairs' "Auto-pair
-Plug 'neoclide/coc.nvim' "Auto completion
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} " Auto-completion
 Plug 'ryanoasis/vim-devicons' "Devicons
 Plug 'vim-airline/vim-airline-themes' " Theme for the VimAirline
 Plug 'junegunn/fzf.vim' " Required for running the Dashboard, :Ag and :Rg commands
@@ -30,8 +30,10 @@ Plug 'glepnir/dashboard-nvim' " Dashboard for NeoVim
 call plug#end()
 
 " Notes
-" Call coc#util#install() after PlugUpgrade.
 " Call :CocList snippets to list the snippets for the current file.
+" Call :CocInstall coc-snippets to install the snippets engine
+" Call :CocInstall coc-python for python installation of auto-completion
+" Call :CocInstall coc-java for java installation of auto-completion
 " Call PlugUpgrade to upgrade all the plugins.
 
 :set completeopt-=preview
@@ -41,10 +43,9 @@ call plug#end()
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-l> :set invhlsearch<CR>
 nnoremap <C-k> :tabn<CR>
-nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 nmap <C-p> :TagbarToggle<CR>
 
-let g:dashboard_default_executive='fzf.vim'
+let g:dashboard_default_executive='fzf'
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
