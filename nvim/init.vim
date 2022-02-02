@@ -12,7 +12,7 @@ set autochdir
 set splitbelow
 set splitright
 set ruler
-set background=light
+set background=dark
 set showtabline=2
 set updatetime=300
 set timeoutlen=300
