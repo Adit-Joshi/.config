@@ -77,7 +77,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+	git
+	zsh-autosuggestions
+	k
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -89,11 +93,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -110,6 +114,7 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export DRIVE_OAUTH='1067498550765-o24orh34chqgifdlibedr4qv7u0hbsrm.apps.googleusercontent.com'
+
 # My custom aliases 
 alias vscode_root="cd /mnt/d/coding/'vs code workspace'"
 alias pycharm_root="cd /mnt/d/coding/'PyCharm Workspace'"
@@ -124,8 +129,10 @@ alias nv="nvim"
 alias soft_wrap='tput rmam'
 alias terminal_config="nv ~/.zshrc"
 alias git_files='cd /mnt/d/coding/GitFiles'
+alias plugged_dir='cd /home/code_bible/.local/share/nvim/plugged'
+alias git_pat='cat /mnt/d/coding/Terminal/encrypted_files/github_pat.txt'
 
 export DISPLAY=localhost:0.0 # This is for the background XMing Server
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /home/code_bible/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
