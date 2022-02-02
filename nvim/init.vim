@@ -1,12 +1,21 @@
-:set number
-:set relativenumber
-:set autoindent
-:set tabstop=4
-:set shiftwidth=4
-:set smarttab
-:set softtabstop=4
-:set mouse=a
-:set clipboard=unnamed
+set number
+set termguicolors
+set relativenumber
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set softtabstop=4
+set mouse=a
+set clipboard=unnamedplus
+set autochdir
+set splitbelow
+set splitright
+set ruler
+set background=light
+set showtabline=2
+set updatetime=300
+set timeoutlen=300
 
 call plug#begin()
 Plug 'tpope/vim-surround' " ysiw
@@ -27,6 +36,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 Plug 'honza/vim-snippets' " Snippets for ALL languages
 Plug 'glepnir/dashboard-nvim' " Dashboard for NeoVim
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'junegunn/gv.vim'
 call plug#end()
 
 " Notes
@@ -36,16 +49,19 @@ call plug#end()
 " Call :CocInstall coc-java for java installation of auto-completion
 " Call PlugUpgrade to upgrade all the plugins.
 
-:set completeopt-=preview
-:colorscheme slate
+set completeopt-=preview
+colorscheme jellybeans
 
 " Keymaps for making your life so easier.
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-l> :set invhlsearch<CR>
 nnoremap <C-k> :tabn<CR>
 nmap <C-p> :TagbarToggle<CR>
+inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm(): "<Tab>"
 
 let g:dashboard_default_executive='fzf'
+
+"Airline config
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
@@ -60,4 +76,11 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
-inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm(): "<Tab>"
+"Signify config
+let g:signify_sign_add               = '+'
+let g:signify_sign_delete            = '_'
+let g:signify_sign_delete_first_line = '‾'
+let g:signify_sign_change            = '~'
+
+let g:signify_sign_show_count = 0
+let g:signify_sign_show_text = 1
