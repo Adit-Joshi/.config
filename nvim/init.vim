@@ -12,14 +12,14 @@ set autochdir
 set splitbelow
 set splitright
 set ruler
-set background=dark
+set background=light
 set showtabline=2
 set updatetime=300
 set timeoutlen=300
 
 call plug#begin()
 Plug 'tpope/vim-surround' " ysiw
-Plug 'preservim/nerdtree' "NERDTree
+Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle'}
 Plug 'tpope/vim-commentary' "Comment using gcc
 Plug 'vim-airline/vim-airline' " VimAirline
 Plug 'ap/vim-css-color' "CSS color helper
@@ -36,8 +36,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 Plug 'honza/vim-snippets' " Snippets for ALL languages
 Plug 'glepnir/dashboard-nvim' " Dashboard for NeoVim
+" Git Integration
 Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive' 
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 call plug#end()
@@ -84,3 +85,7 @@ let g:signify_sign_change            = '~'
 
 let g:signify_sign_show_count = 0
 let g:signify_sign_show_text = 1
+
+"NERDTree config
+au VimEnter *  NERDTree | wincmd p
+au BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
