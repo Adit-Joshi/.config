@@ -1,6 +1,6 @@
 set number
-set termguicolors
 set relativenumber
+set termguicolors
 set autoindent
 set tabstop=4
 set shiftwidth=4
@@ -19,21 +19,21 @@ set timeoutlen=300
 
 call plug#begin()
 Plug 'tpope/vim-surround' " ysiw
-Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle'}
+Plug 'preservim/nerdtree' " NerdTree
+Plug 'PhilRunninger/nerdtree-visual-selection' "Selection for NerdTree
 Plug 'tpope/vim-commentary' "Comment using gcc
 Plug 'vim-airline/vim-airline' " VimAirline
 Plug 'ap/vim-css-color' "CSS color helper
 Plug 'rafi/awesome-vim-colorschemes' "colorschemes
 Plug 'tc50cal/vim-terminal' "Terminal Split
 Plug 'preservim/tagbar' "Vim Tagbar
-Plug 'github/copilot.vim' "GitHub Copilot
 Plug 'jiangmiao/auto-pairs' "Auto-pair
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} " Auto-completion
 Plug 'ryanoasis/vim-devicons' "Devicons
 Plug 'vim-airline/vim-airline-themes' " Theme for the VimAirline
 Plug 'junegunn/fzf.vim' " Required for running the Dashboard, :Ag and :Rg commands
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
+Plug 'terryma/vim-multiple-cursors' " multiple cursors
 Plug 'honza/vim-snippets' " Snippets for ALL languages
 Plug 'glepnir/dashboard-nvim' " Dashboard for NeoVim
 " Git Integration
@@ -86,6 +86,5 @@ let g:signify_sign_change            = '~'
 let g:signify_sign_show_count = 0
 let g:signify_sign_show_text = 1
 
-"NERDTree config
-au VimEnter *  NERDTree | wincmd p
+"NerdTree config
 au BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
