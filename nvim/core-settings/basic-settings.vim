@@ -18,6 +18,5 @@ set updatetime=300
 set timeoutlen=300
 set fileencoding=utf-8
 set cursorline
-colorscheme jellybeans
 colorscheme ayu
 set completeopt=longest,menuone
