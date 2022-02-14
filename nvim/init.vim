@@ -1,7 +1,7 @@
 " File: init.vim
 " Author: Adit Joshi
 " Description: The configuration file of my Neovim setup.
-" Last Modified: February 12, 2022
+" Last Modified: February 13, 2022
 
 "Plugins
 source $HOME/.config/nvim/plug-configs/plugins.vim
